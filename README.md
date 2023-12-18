@@ -109,7 +109,7 @@ Future<List<wp.Comment>> comments = wordPress.fetchComments(
 ### 7. Create User
 
 ```dart
-Future<void> createUser({@required String email, @required String username, @required String password, @required List<String> roles}) async {
+Future<void> createUser({required String email, required String username, required String password, required List<String> roles}) async {
     await widget.wordPress.createUser(
       user: wp.User(
         email: email,
@@ -128,7 +128,7 @@ Future<void> createUser({@required String email, @required String username, @req
 ### 8. Create Post
 
 ```dart
-  void createPost({@required wp.User user}) {
+  void createPost({required wp.User user}) {
     final post = widget.wordPress.createPost(
       post: new wp.Post(
         title: 'First post as a Chief Editor',
@@ -154,7 +154,7 @@ Future<void> createUser({@required String email, @required String username, @req
 ### 9. create Comment
 
 ```dart
-  void createComment({@required int userId, @required int postId}) {
+  void createComment({required int userId, required int postId}) {
     final comment = widget.wordPress.createComment(
       comment: new wp.Comment(
         author: userId,
@@ -175,7 +175,7 @@ Future<void> createUser({@required String email, @required String username, @req
 ### 10. Update Comment
 
 ```dart
-Future<void> updateComment({@required int id, @required int postId, @required wp.User user}) async {
+Future<void> updateComment({required int id, required int postId, required wp.User user}) async {
     await widget.wordPress.updateComment(
       comment: new wp.Comment(
         content: "Comment Updated2!",
@@ -194,7 +194,7 @@ Future<void> updateComment({@required int id, @required int postId, @required wp
 ### 11. Update Post
 
 ```dart
-Future<void> updatePost({@required int id, @required int userId}) async {
+Future<void> updatePost({required int id, required int userId}) async {
     await widget.wordPress.updatePost(
       post: new wp.Post(
         title: 'First post as a Chief Editor',
@@ -219,7 +219,7 @@ Future<void> updatePost({@required int id, @required int userId}) async {
 ### 12. Update User
 
 ```dart
-Future<void> updateUser({@required int id, @required String username, @required String email}) async {
+Future<void> updateUser({required int id, required String username, required String email}) async {
     await widget.wordPress.updateUser(
       user: new wp.User(
         description: "This is description for this user",
@@ -240,7 +240,7 @@ Future<void> updateUser({@required int id, @required String username, @required 
 ### 13. Delete Comment
 
 ```dart
-Future<void> deleteComment({@required int id}) async {
+Future<void> deleteComment({required int id}) async {
     await widget.wordPress.deleteComment(id: id).then((c) {
       print('Comment Deleted successfully: $c');
     }).catchError((err) {
@@ -252,7 +252,7 @@ Future<void> deleteComment({@required int id}) async {
 ### 14. Delete Post
 
 ```dart
-  Future<void> deletePost({@required int id}) async {
+  Future<void> deletePost({required int id}) async {
     await widget.wordPress.deletePost(id: id).then((p) {
       print('Post Deleted successfully: $p');
     }).catchError((err) {
@@ -264,7 +264,7 @@ Future<void> deleteComment({@required int id}) async {
 ### 15. Delete User
 
 ```dart
-  Future<void> deleteUser({@required int id, @required int reassign}) async {
+  Future<void> deleteUser({required int id, required int reassign}) async {
     await widget.wordPress.deleteUser(id: id, reassign: reassign).then((u) {
       print('User Deleted successfully: $u');
     }).catchError((err) {
